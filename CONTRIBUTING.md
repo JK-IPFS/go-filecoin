@@ -30,6 +30,7 @@ Filecoin, including go-filecoin and all related modules, follows the
   - [Developer Do's and Don'ts](#developer-dos-and-donts)
 - [Issues and tracking](#issues-and-tracking)
   - [Good First Issues](#good-first-issues)
+  - [Pipelines (ZenHub)](#pipelines-zenhub)
   - [Labels (GitHub)](#labels-github)
   - [Epics (ZenHub)](#epics-zenhub)
   - [Releases (ZenHub)](#releases-zenhub)
@@ -156,6 +157,20 @@ To pick up an issue:
 4. **Create a PR** with your changes, following the [Pull Request and Code Review guidelines]().
 
 For continued adventures, search for issues with the label [E-help-wanted](https://github.com/filecoin-project/go-filecoin/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted). These are slightly thornier problems that are also reasonably well-prepared.
+
+### Pipelines (ZenHub)
+We use ZenHub pipelines to track the flow of work on open issues. 
+This usage can vary over time, but the pipelines roughly indicate:
+- *Inbox*: new issues yet to be triaged
+- *Candidates*: reasonably complete issues, ready for prioritisation by maintainers
+- *Icebox*: no near-term intention for implementation
+- *Backlog*: not an immediate priority, but likely to become one in the future
+- *Ready*: ready for implementation
+- *In Progress*: actively being worked on
+- *Review/QA*: in review (usually triggered by linking a PR)
+- *Blocked*: unable to progress
+
+ZenHub can also track dependencies between issues, which is encouraged.
 
 ### Labels (GitHub)
 We use GitHub issue labels to aid browsing, search and discovery of issues related to some outcome or theme.
