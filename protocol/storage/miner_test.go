@@ -225,7 +225,7 @@ func TestDealsAwaitingSealPersistence(t *testing.T) {
 			dealsAwaitingSealDs: repo.NewInMemoryRepo().DealsDatastore(),
 		}
 
-		miner.dealsAwaitingSeal.add(wantSectorID, dealCid)
+		miner.dealsAwaitingSeal.process(wantSectorID, dealCid)
 
 		require.NoError(t, miner.saveDealsAwaitingSeal())
 		miner.dealsAwaitingSeal = &dealsAwaitingSeal{}
@@ -240,7 +240,7 @@ func TestDealsAwaitingSealPersistence(t *testing.T) {
 			dealsAwaitingSealDs: repo.NewInMemoryRepo().DealsDatastore(),
 		}
 
-		miner.dealsAwaitingSeal.add(wantSectorID, dealCid)
+		miner.dealsAwaitingSeal.process(wantSectorID, dealCid)
 		sector := testSectorMetadata(newCid())
 		msgCid := newCid()
 
@@ -455,7 +455,7 @@ func minerWithAcceptedDealTestSetup(t *testing.T, proposalCid cid.Cid, sectorID 
 	// Simulates miner.acceptProposal without going to the network to fetch the data by storing the deal.
 	// Mapping the proposalCid to a sectorID simulates staging the sector.
 	require.NoError(t, porcelainAPI.DealPut(storageDeal))
-	miner.dealsAwaitingSeal.add(sectorID, proposalCid)
+	miner.dealsAwaitingSeal.process(sectorID, proposalCid)
 
 	return porcelainAPI, miner, proposal
 }
